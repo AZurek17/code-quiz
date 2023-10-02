@@ -3,34 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link ref = "stylesheet" href="./assets/styles.css">
+    <link ref="stylesheet" href="./assets/reset.css">
+    <link ref="stylesheet" href="./assets/styles.css">
     <title>Code Quiz</title>
 </head>
 
 <body>
-    <h1>Code Quiz</h1>
-    <section class="start_container">
+    <header class="">
+    <!-- <a href="";>View High Scores</a> -->
+    <h1 style="text-align: center; padding: 15px;">Code Quiz</h1>
+    </header>
+
+    <section class="start_container" style="text-align: center; padding: 15px;">
         <button class="start_button">
             <p>Start Quiz</p>
         </button>
     </section>
 
-    <section class="quiz_container">
+
+    <!-- <section class="quiz_container" style="text-align: center; padding: 15px;">
         <h2>You have 60 seconds to complete this test</h2>
-        <p class="timer">60 seconds</p>
+        <p class="timer"style="text-align: right; padding: 15px;">60 seconds</p>
+        <div class="quiz">
+           <div class="question_test"> -->
+                <!-- <div class="answer_list"> -->
+                     <!-- <p class="list_answer"></p> -->
+                <!-- <h2><button class="q1"><span id="a4">0</span></button></h2>
+                <h2><button class="q2"><span id="a4">0</span></button></h2> 
+                <h2><button class="q3"><span id="a4">0</span></button></h2>
+                <h2><button class="q4"><span cid="a4">0</span></button></h2>  -->
+                <!-- </div> 
+            </div>
+        </div>  -->
+
+        <section class="quiz_container"style="text-align: center; padding: 15px;">
+        <h2>You have 60 seconds to complete this test!</h2>
+         <p class="timer"style="text-align: right; padding: 15px;">60 seconds</p>
         <h2 class="question_text"></h2>
-            <div class="answer_list">
+             <div class="answer_list">
                 <p class="list_answer"></p>
             </div>
+        </section> 
+        
+        
+    <section> 
+        <div class="end_container"style="text-align: center; padding: 15px;">
+        <h1>The Quiz has Ended</h1>
+        <label>Your final Score = </label>
+            <form id="list-form" method="POST">
+                <label for="list-text">Initials: </label>.
+                 <input type="text" name="list-text" id="list-text"/>
+                <button id="save-button">SAVE</button>
+            </form>
+        </div>
+        <div class="score_container" id="highScore" style="text-align: center; padding: 15px;">
+            <h1><span id="saved-count"></span> High Scores</h1>
+            <p>Initials: <span id="saved-name">0</span></p>
+            <p>Score: <span id="saved-score">0</span></p>
+            <ul id="saved-list"></ul>
+        </div>
     </section>
-    
-    <section class="end_container">
-        <h1>High Scores</h1>
-    </section>
-
-
-    <script src="./assets/script.js"></script>
-
+   
 </body>
+
+<script src="./assets/script.js"></script>
 
 </html>
