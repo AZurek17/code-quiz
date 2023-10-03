@@ -10,7 +10,7 @@
 
 <body>
     <header class="card">
-    <a style="text-align: center; padding: 15px;"href="score_container";>View High Scores</a> 
+    <a id="vhs" style="text-align: center; padding: 15px;" href="score_container";>View High Scores</a> 
     <h1 style="text-align: center; padding: 15px;">Code Quiz</h1>
     <h2 class="timer"style="text-align: center; padding: 15px;">60 seconds</h2>
     </header>
@@ -49,8 +49,9 @@
         <div class="end_container" style="text-align: center; padding: 15px;">
         <h1>The Quiz has Ended</h1>
         <label>Your final Score = </label>
+        <input type="text" name="score-text" id="score-text"/>
             <form id="list-form" method="POST">
-                <label for="list-text">Initials: </label>.
+                <label for="list-text">Enter your Initials: </label>.
                  <input type="text" name="list-text" id="list-text"/>
                 <button class="button" id="save-button">SAVE</button>
             </form>
@@ -59,10 +60,10 @@
 
     <section>
     <div class="score_container" id="highScore" style="text-align: center; padding: 15px;">
-        <h1><span id="saved-count"></span> High Scores</h1>
-        <p>Initials: <span id="saved-name">0</span></p>
-        <p>Score: <span id="saved-score">0</span></p>
-        <ul id="saved-list"></ul>
+        <h1><span id="saved-count"></span> High Scores:</h1>
+        <p><strong>Players Initials: </strong> <span id="saved-name"></span></p>
+        <p><strong>Score: </strong> <span id="saved-score">0</span></p>
+        <!-- <ul id="saved-list"></ul> -->
     </div>
     </section>
    

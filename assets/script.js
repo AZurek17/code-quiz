@@ -5,7 +5,6 @@ var quizContainer2 = document.querySelector (".quiz_container2");
 var quizContainer3 = document.querySelector (".quiz_container3");
 var endContainer = document.querySelector (".end_container");
 var scoreContainer = document.querySelector (".score_container");
-
 /////////startContainer--------------------
 var startButton = document.querySelector (".start_button");
 var timer = document.querySelector (".timer");
@@ -28,23 +27,22 @@ var listText = document.getElementById ("#list-text");
 var saveButton = document.getElementById("#save-button");
 var listForm = document.getElementById("#list-form");
 var savedCount = document.getElementById("#saved-count");
-
 ////////ScoresContainer-------------------
+var vhs = document.getElementById("#vhs");
 var savedName = document.getElementById("#saved-name");
 var savedScore = document.getElementById("#saved-score");
 var savedList = document.getElementById("#saved-list");
 ////---------------------------------
-
-//// start of code
+//// start of code quiz
 quizContainer.style.display = "none";
 quizContainer1.style.display = "none";
 quizContainer2.style.display = "none";
 quizContainer3.style.display = "none";
 endContainer.style.display = "none";
-scoreContainer.style.display = "none";
+scoreContainer.style.display = "block";
 
 //---------------timer
-var seconds = 60;
+var seconds = 45;
 
 function setTimer() {
     var timerInterval = setInterval(function() {
@@ -97,8 +95,6 @@ function display3(GI) {
         answerList3.appendChild (button)
     }) 
 }
-
-
 
 ///----------------
  
@@ -162,30 +158,6 @@ answerList3.addEventListener("click", function (event) {
         } 
     })
 
-
-// var questions = [
-//     {
-//         question:"Commonly used data type DO not include: ",
-//         answer: ["strings", "booleans", "alerts", "numbers"], 
-//         correct_answer: "booleans",
-//     },
-//     {
-//         question:"String values must be enclosed within _____ when being assigned to variables.    ",
-//         answer: ["commas", "curly brackets", "quotes", "parenthesis"], 
-//         correct_answer: "curly brackets",
-//     },
-//     {
-//         question:"Arrays in java script can store _____.",
-//         answer: ["numbers and strings", "other arrays", "booleans", "all of the above"],  
-//         correct_answer: "all of the above",
-//     },
-//     {
-//         question:"The condition in an if /else statement is enclosed with ____.",
-//         answer: ["quotes", "curly brackets", "parenthesis", "square brackets"],  
-//         correct_answer: "parenthesis",
-//     }
-// ]
-
 var questions = [
     {
         question:"Commonly used data type DO not include: ",
@@ -211,8 +183,16 @@ var questions3 = [
         correct_answer3: "parenthesis",
     }
 ]
-
-
+///------------
+vhs.addEventListener("click", function (event) {
+startContainer.style.display = "none";    
+quizContainer.style.display = "none";
+quizContainer1.style.display = "none";
+quizContainer2.style.display = "none";
+quizContainer3.style.display = "none";
+endContainer.style.display = "none";
+scoreContainer.style.display = "block";
+    })
 ///--------------score container
 
 var lists = []
@@ -220,11 +200,9 @@ var lists = []
 function showScore() {
     scoreContainer.style.display = "block";
     endContainer.style.display = "none";
-    savedList.innerHTML = ""; 
+    savedList.innerHTML = "saved-list"; 
     savedCount.textContent= lists.length;
-    
-    //var quizScore = {//JSON.parse(localStorage.getItem("studentScore"));
-    
+
     for (var i = 0; i < lists.length; i++) {
         var list = lists[i];
     
@@ -232,135 +210,37 @@ function showScore() {
         li.textContent = list;
         li.setAttribute("data-index", i);
 
-        var button = document.createElement("button");
+        //var button = document.createElement("button");
         // li.appendChild(button);
         savedList.appendChild(li);
      }
      }
 
-function init(){
-    var storedLists = JSON.parse(localStorage.getItem("lists"));
-        if (storedLists !== null) {
-            lists = storedLists;
-        }
-    showScore();
-}
-function storeLists() {
-    localStorage.setItem("lists", JSON.stringify(lists));
-}
+function savedIntials() {
+    var nameInitals = localStorage.getItem("#saved-name");
+    // var highScore = localStorage.getItem("#saved-score");
+    // if (!nameInitals || !nameInitals) {
+    //   return;
+    //  }
+    savedName.textContent = nameInitals;
+    savedScore.textContent = highScore;
+  }
 
-////---------eventlistener
+//---------eventlistener
 
-// saveButton.addEventListener("click", function(event) {
-//     event.preventDefault();
-//     var textList = savedList.value.trim();
-//         if (textList === "#") {
-//         return;
-//         }
-//     lists.push(textList);
-//     textList.value = "";
-    
-//     storeLists();
-//     showScore();
-// });
+saveButton.addEventListener("click", function(event) {
+    event.preventDefault();
 
+var nameInitals = document.querySelector("#saved-name").value;
+// var highScore = document.querySelector("#saved-score").value;
 
+    if (nameInitals === ""){
+        displayMessage("error, email cannot be blank");
+    }
+localStorage.setitem("#saved-name", nameInitals);
+localStorage.setitem("#saved-score", highScore);
+savedIntials();
+})
 
-//init();
+savedIntials();
 
-
-//endContainer.style.display = "none";
-//scoreContainer.style.display = "block";
-
-
-
-
-    // if (quizScore !== null){
-    // document.getElementById("#saved-text").innerHTML = quizScore.initials;
-    // document.getElementById("#saved-score").innerHTML = quizScore.score;// change to score vs inititals
-    // }else {
-    //     return;
-    // }
-
-
-    //endContainer.style.display = "none";
-    //scoreContainer.style.display = "block";
-//var scoreSave =  timer.textContent = seconds
-
-//var score = seconds;
-// function savedText() {
-//      var studentScore = {
-//          initials: initials.value.trim()
-//          //score: score.value
-//      }
-//     }
-
-//      localStorage.setItem("studentScore", JSON.stringify(studentScore));
-// }
- 
-
-/////--------- next page
-
-// scoreButton.addEventListener("click", function(event) {
-//     endContainer.style.display = "none";
-//     scoreContainer.style.display = "block";
-//     event.preventDefault();
-
-    //saveHistory();
-    //showScore();
-//   });
-
-// function storeLists() {
-//     localStorage.setItem("lists", JSON.stringify(lists));
-// }
-///--------------score container
-
-//42 var lists = []
-  
-// function saveScore() {
-//     //endContainer.style.display = "none";
-//     //scoreContainer.style.display = "block";
-//     //savedList.innerHTML = ""; 
-//     //var quizScore = {//JSON.parse(localStorage.getItem("studentScore"));
-    
-//     var testerName = {
-//         listText: listText.value
-//         //savedScore: savedScore.value
-
-//     };
-//         localStorage.setItem("testerName", JSON.stringify(testerName));
-//     }
-    
-    // 42 for (var i = 0; i < lists.length; i++) {
-    //     var list = lists[i];
-    
-    //     var li = document.createElement("li");
-    //     li.textContent = list;
-    //     li.setAttribute("data-index", i);
-
-    //     savedList.appendChild(li);
-    // }
-    // }
-
-    
-// funciton to get the next questions
-// questions appears on screen (display)
-// [ questions text]
-
-//click funciton
-//start with IF statement
-//use this keyword to target value()
-//clear hmtl for next input
-//advance to the next question, incriment
-//verify, if more questions
-//if no more question, end game else go thte
-  // function nextQuestion(next) {
-    //     index = index + next;
-    //     if (index < 0) { 
-    //       index = answerList.questions.length - 1; 
-    //     } else if (index > answerList.questions.length - 1) { 
-    //       index = 0;
-    //     }
-    //     currentQuestions = questions[index];
-    //     questions++;
-    //   }
