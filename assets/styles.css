@@ -1,62 +1,82 @@
-* {
-    box-sizing: border-box;
-    margin: 1%;
-    padding: 15px;
-    background-color:bisque;
-}
-body, main {
-    width: 100%;
-    height: 100%;
-}
 
-
-/* 
-body {
-    margin: 1%;
-    padding: 15px;
-    background-color:bisque;
+button {
+    width:150px;
+    Height:40px;
+    color:black
 }
-.start_container {
-     display: block; 
-    background-color:bisque;
-    border: 1x solid bisque;
-    margin: 30pc auto;
-    padding: 15px;
-    width: 70%;
+.timer {
+    position: right;
+    display: block;
+    margin: 40px auto;
     text-align: center;
-
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 20vw;
+    background-color: #f0ead6;
 }
-
-a.right-text {
-    text-align: right;
+h3 {
+    padding: 25px;
 }
-.questions_container {
+a {
+    padding: 25px;
+}
+.start_container, .end_container, .score_container {
     display: block;
-    background-color:bisque;
-    border: 1x solid bisque;
-    margin: 30pc auto;
-    padding: 15px;
-    width: 70%;
-    text-align:center;
-}
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 60vw;
+    background-color: #f0ead6;
+    padding: 25px;
+  }
 
-.end_container {
+  section.quiz_container{
+    position: relative;
     display: block;
-    background-color:bisque;
-    border: 1x solid bisque;
-    margin: 30pc auto;
-    padding: 15px;
-    width: 70%;
-    text-align:center;
-}
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 60vw;
+    background-color: #f0ead6;
+    height: 200px;
+  }
+  section.quiz_container1{
+    position: relative;
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 60vw;
+    background-color: #f0ead6;
+    height: 200px;
+  }
+  section.quiz_container2{
+    position: relative;
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 60vw;
+    background-color: #f0ead6;
+    height: 200px;
+  }
+  section.quiz_container3{
+    position: relative;
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 60vw;
+    background-color: #f0ead6;
+    height: 200px;
+  }
+  div.answer_list{ 
+    align-content: center;
+  }
 
-.score_container {
-    display: block;
-    background-color:bisque;
-    border: 1x solid bisque;
-    margin: 30pc auto;
-    padding: 15px;
-    width: 70%;
-    text-align:center;
-}
- */
+
