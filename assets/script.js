@@ -24,11 +24,11 @@ var listAnswer2 = document.querySelector (".list_answer2");
 var listAnswer3 = document.querySelector (".list_answer3");
 ///////end container----------------------
 var listText = document.getElementById ("#list-text");
-var saveButton = document.getElementById("#save-button");
+var saveButton = document.querySelector("#save-button");
 var listForm = document.getElementById("#list-form");
 var savedCount = document.getElementById("#saved-count");
 ////////ScoresContainer-------------------
-var vhs = document.getElementById("#vhs");
+var card = document.querySelector("#card");
 var savedName = document.getElementById("#saved-name");
 var savedScore = document.getElementById("#saved-score");
 var savedList = document.getElementById("#saved-list");
@@ -39,7 +39,7 @@ quizContainer1.style.display = "none";
 quizContainer2.style.display = "none";
 quizContainer3.style.display = "none";
 endContainer.style.display = "none";
-scoreContainer.style.display = "block";
+scoreContainer.style.display = "none";
 
 //---------------timer
 var seconds = 45;
@@ -99,7 +99,7 @@ function display3(GI) {
 ///----------------
  
 //button-------event
-startButton.addEventListener("click", function (e) {
+startButton.addEventListener("click", function (event) {
     quizContainer.style.display = "block";
     quizContainer1.style.display = "none";
     quizContainer2.style.display = "none";
@@ -119,7 +119,7 @@ answerList.addEventListener("click", function (event) {
         
     } else { 
         (questions.answer === questions.correct_answer)   
-        seconds = seconds - 8;
+        seconds = seconds - 12;
         }
     })
     
@@ -131,7 +131,7 @@ answerList1.addEventListener("click", function (event) {
             
     } else { 
         (questions1.answer1 === questions1.correct_answer1)   
-        seconds = seconds - 8;
+        seconds = seconds - 12;
          }
     })
 
@@ -143,13 +143,13 @@ answerList2.addEventListener("click", function (event) {
             
     } else { 
         (questions2.answer2 === questions2.correct_answer2)   
-        seconds = seconds - 8;
+        seconds = seconds - 12;
          }
     })
 
 answerList3.addEventListener("click", function (event) {
     if (questions3.answer3 === questions3.correct_answer3) {  
-        seconds = seconds - 8;
+        seconds = seconds - 12;
         
 
         } else { 
@@ -184,15 +184,21 @@ var questions3 = [
     }
 ]
 ///------------
-vhs.addEventListener("click", function (event) {
-startContainer.style.display = "none";    
-quizContainer.style.display = "none";
-quizContainer1.style.display = "none";
-quizContainer2.style.display = "none";
-quizContainer3.style.display = "none";
-endContainer.style.display = "none";
-scoreContainer.style.display = "block";
+
+card.addEventListener("click", function(event) {
+    startContainer.style.display = "none";    
+    quizContainer.style.display = "none";
+    quizContainer1.style.display = "none";
+    quizContainer2.style.display = "none";
+    quizContainer3.style.display = "none";
+    endContainer.style.display = "none";
+    timer.style.display = "none"
+    scoreContainer.style.display = "block";
     })
+
+///-----------
+
+
 ///--------------score container
 
 var lists = []
@@ -210,29 +216,34 @@ function showScore() {
         li.textContent = list;
         li.setAttribute("data-index", i);
 
-        //var button = document.createElement("button");
-        // li.appendChild(button);
+        button = document.createElement("button");
+        li.appendChild(button);
         savedList.appendChild(li);
      }
      }
 
 function savedIntials() {
-    var nameInitals = localStorage.getItem("#saved-name");
-    // var highScore = localStorage.getItem("#saved-score");
-    // if (!nameInitals || !nameInitals) {
-    //   return;
-    //  }
-    savedName.textContent = nameInitals;
+    var nameInits = localStorage.getItem("#saved-name");
+    savedName.textContent = nameInits;
     savedScore.textContent = highScore;
   }
 
 //---------eventlistener
 
-saveButton.addEventListener("click", function(event) {
-    event.preventDefault();
+endContainer.addEventListener("click", function(event) {
+    
 
+startContainer.style.display = "none";    
+quizContainer.style.display = "none";
+quizContainer1.style.display = "none";
+quizContainer2.style.display = "none";
+quizContainer3.style.display = "none";
+endContainer.style.display = "none";
+timer.style.display = "none"
+scoreContainer.style.display = "block";
+event.preventDefault();
 var nameInitals = document.querySelector("#saved-name").value;
-// var highScore = document.querySelector("#saved-score").value;
+var highScore = document.querySelector("#saved-score").value;
 
     if (nameInitals === ""){
         displayMessage("error, email cannot be blank");
@@ -240,6 +251,7 @@ var nameInitals = document.querySelector("#saved-name").value;
 localStorage.setitem("#saved-name", nameInitals);
 localStorage.setitem("#saved-score", highScore);
 savedIntials();
+
 })
 
 savedIntials();

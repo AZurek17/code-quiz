@@ -8,14 +8,19 @@
 * JavaScript - If...Else - https://www.w3schools.com/jsref/jsref_if.asp
 * JavaScript - Logical Operators - https://www.w3schools.com/java/java_operators.asp
 * JavaScript - For Loop - https://www.w3schools.com/java/java_for_loop.asp
+* JavaScript - Arrays - https://www.w3schools.com/js/js_arrays.asp
 * JavaScript - timerIntervals - https://www.w3schools.com/js/js_timing.asp
-* Web API's - Event Listeners - https://www.w3schools.com/jsref/met_document_addeventlistener.asp
+* JavaScript - Event Listeners - https://www.w3schools.com/jsref/met_document_addeventlistener.asp
 
-## Description
 
-A timed Quiz.
 
-## Usage
+## Description:
+
+A multiple question Quiz with 45 secs to complete.
+
+
+
+## Usage:
 
 When you go to the website, you are prompt to "Start Quiz".  Then the user clicks the "Start Quiz" the following occurs:
 
@@ -33,7 +38,7 @@ Below are a few examples of code:
 ### Event Listner:
 
 
-answerList.addEventListener("click", function (event) {
+    answerList.addEventListener("click", function (event) {
     if (questions.answer === questions.correct_answer) {  
         seconds = seconds - 8;
         } else { 
@@ -44,21 +49,32 @@ answerList.addEventListener("click", function (event) {
     })
 
 
-### Timer Countdown
+### Timer Countdown:
 
 
-function setTimer() {
+    function setTimer() {
     var timerInterval = setInterval(function() {
         seconds--;
         timer.textContent = seconds + " seconds left.";
 
     }, 1000);      
-}
+    }
 
 
 
+### Arrays:
 
-## Credits
+
+    var questions = [
+    {
+        question:"Commonly used data type DO not include: ",
+        answer: ["strings", "booleans", "alerts", "numbers"], 
+        correct_answer: "booleans",
+    }]
+
+
+
+## Credits"
 * Tutoring Session: Abdullah Al Hilfi (via Calendly)
 
 ----------------------------------------------------------------------------------
